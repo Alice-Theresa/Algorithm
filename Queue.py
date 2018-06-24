@@ -57,7 +57,7 @@ class Queue:
         q = q + 'Tail'
         print(q)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     q = Queue()
     q.enqueue(1)
     q.enqueue(2)

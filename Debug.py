@@ -27,5 +27,6 @@ def outputLog(debug):
 def DebugSetting():
     return {
         'Queue' : False,
-        'Graph' : False
+        'Graph' : False,
+        'Dijkstra' : True
     }

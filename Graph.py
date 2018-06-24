@@ -8,23 +8,23 @@ class Graph:
 
     def __init__(self):
         self.vertices = []
-        self.lines = {}
+        self.edge = {}
         self.colors = {}
 
     @inputLog(Debug)
     def addVertex(self, v):
         self.vertices.append(v)
-        self.lines[v] = []
+        self.edge[v] = []
 
     @inputLog(Debug)
     def addEdge(self, v, w):
-        self.lines[v].append(w)
-        self.lines[w].append(v)
+        self.edge[v].append(w)
+        self.edge[w].append(v)
 
     def showGraph(self):
         for i in self.vertices:
             s = i + ' -> '
-            for j in self.lines[i]:
+            for j in self.edge[i]:
                 s = s + j + ' '
             print(s)
 
@@ -42,7 +42,7 @@ class Graph:
 
         while not queue.isEmpty():
             u = queue.dequeue()
-            neighbors = self.lines[u]
+            neighbors = self.edge[u]
             self.colors[u] = 'gray'
             for i in neighbors:
                 if self.colors[i] == 'white':
@@ -62,13 +62,13 @@ class Graph:
     def __dfs(self, v):
         self.colors[v] = 'gray'
         print(v)
-        neighbors = self.lines[v]
+        neighbors = self.edge[v]
         for i in neighbors:
             if self.colors[i] == 'white':
                 self.__dfs(i)
         self.colors[i] = 'black'
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     g = Graph()
     g.addVertex('a')
     g.addVertex('b')
@@ -82,7 +82,7 @@ if __name__ == "__main__":
     g.addEdge('b', 'e')
     g.addEdge('c', 'f')
     g.addEdge('e', 'f')
-    g.showGraph()
 
+    g.showGraph()
     g.bfs('a')
     g.dfs()

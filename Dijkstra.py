@@ -53,6 +53,17 @@ class Dijkstra:
     def calculate(self):
         self.buildCost()
         self.buildFather()
+        node = self.findLowestCostNode()
+        while node is not None:
+            cost = self.cost[node]
+            neighbors = self.graph[node]
+            for n in neighbors.keys():
+                newCost = cost + neighbors[n]
+                if self.cost[n] > newCost:
+                    self.cost[n] = newCost
+                    self.father[n] = node
+            self.processed.append(node)
+            node = self.findLowestCostNode()
 
 
 if __name__ == '__main__':

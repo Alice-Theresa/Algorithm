@@ -28,5 +28,6 @@ def DebugSetting():
     return {
         'Queue' : False,
         'Graph' : False,
-        'Dijkstra' : True
+        'Dijkstra' : True,
+        'BinaryTree' : True
     }

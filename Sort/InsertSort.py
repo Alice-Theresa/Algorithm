@@ -9,7 +9,7 @@ def insertSort(array):
         array[j] = temp
 
 if __name__ == '__main__':
-    array = [5, 4, 3, 2, 1]
+    array = [4, 5, 3, 2, 1]
     insertSort(array)
     print(array)
 
